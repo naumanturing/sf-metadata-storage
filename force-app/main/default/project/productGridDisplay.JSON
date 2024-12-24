@@ -1,0 +1,19 @@
+{
+    "notebookLink": "https://colab.research.google.com/drive/1L9ZkxIhQdzWOju8AxCWp3qwgp_fRRD5U",
+    "notebookUID": "1L9ZkxIhQdzWOju8AxCWp3qwgp_fRRD5U",
+    "1": {
+        "classes": ["FavoriteItemsController.cls"],
+        "lwc": ["favoriteItems"],
+        "objects": ["Product__c"]
+    },
+    "2": {
+        "classes": ["FavoriteItemsControllerWithToggle.cls"],
+        "lwc": ["favoriteItemsWithFavoriteToggle"],
+        "objects": ["Product__c"]
+    },
+    "3": {
+        "classes": ["FavoriteItemsControllerWithEdit.cls"],
+        "lwc": ["favoriteItemsWithEdit"],
+        "objects": ["Product__c"]
+    }
+}

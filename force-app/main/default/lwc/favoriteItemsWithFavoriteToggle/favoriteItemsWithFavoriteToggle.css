@@ -1,0 +1,37 @@
+/* Styles the product image to fill the container with fixed height */
+.product-image {
+    width: 100%;
+    height: 10rem;
+    object-fit: cover;
+}
+
+/* Limits the description text to one line with ellipsis if it overflows */
+.description {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Sets a light background color for the container */
+.container {
+    background-color: #f2f2f2;
+    position: relative;
+    margin-left: 13px;
+}
+
+/* Defines the image wrapper height and adds scrolling */
+.image-wrapper{
+    height: 70vh;
+    overflow: scroll;
+}
+
+/* Styles the favorite icon button */
+.favorite-icon-btn{
+    position: absolute;
+    top: 15px;
+    right: 12px;
+    cursor: pointer;
+    background: white;
+    transition: background-color 0.3s ease;
+    --lwc-borderWidthThin: none;
+}

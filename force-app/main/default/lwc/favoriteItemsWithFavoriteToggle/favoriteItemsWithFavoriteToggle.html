@@ -1,0 +1,64 @@
+<template>
+    <div class="slds-is-relative">
+        <!-- Loading spinner while data is being fetched -->
+        <template if:true={isLoading}>
+            <lightning-spinner alternative-text="Loading products..." size="medium"></lightning-spinner>
+        </template>
+
+        <!-- Product Grid -->
+        <lightning-card title="Product Data" icon-name="custom:custom63">
+            <div class="slds-grid slds-wrap slds-gutters image-wrapper">
+                <template for:each={products} for:item="product">
+                    <div key={product.Id} class="slds-col slds-size_1-of-3 slds-p-around_small">
+                        <lightning-card title={product.ProductName__c} icon-name="standard:product">
+                            <div class="slds-p-horizontal_small slds-p-vertical_medium container">
+                                <!-- Favorite Star Icon -->
+                                 <div class="favorite-icon-btn">
+                                    <lightning-button-icon
+                                        icon-name={product.favoriteIcon}
+                                        alternative-text="Favorite"
+                                        class="favorite-icon"
+                                        onclick={toggleFavorite}
+                                        data-id={product.Id}>
+                                   </lightning-button-icon>
+                                 </div>
+
+                                <div class="slds-align_absolute-center">
+                                    <img
+                                        src={product.ImageURL__c}
+                                        alt={product.Name}
+                                        class="product-image" />
+                                </div>
+                                <div class="slds-m-top_small slds-text-heading_small">
+                                    {product.ProductName__c}
+                                </div>
+                                <p class="description"> <strong>Description</strong> {product.Description__c}</p>
+                                <p><strong>Price: {product.Price__c} INR</strong></p>
+                                <p> <strong>Type:</strong> {product.Type__c}</p>
+                            </div>
+                        </lightning-card>
+                    </div>
+                </template>
+            </div>
+
+            <!-- Pagination Controls -->
+            <div class="slds-m-top_medium slds-text-align_center">
+                <lightning-button
+                    variant="brand"
+                    onclick={handlePrevPage}
+                    label="Previous"
+                    disabled={isPreviousDisabled}>
+                </lightning-button>
+                <span class="slds-m-horizontal_medium">
+                    Page {currentPage} of {totalPages}
+                </span>
+                <lightning-button
+                    variant="brand"
+                    onclick={handleNextPage}
+                    disabled={isNextDisabled}
+                    label="Next">
+                </lightning-button>
+            </div>
+        </lightning-card>
+    </div>
+</template>
